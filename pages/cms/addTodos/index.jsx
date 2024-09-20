@@ -4,12 +4,14 @@ import { useDispatch } from 'react-redux';
 import { addTodo } from '@/toolkit/todoSlice';
 import { nanoid } from 'nanoid';
 import { Button, Checkbox, FormControlLabel, Grid, Paper, TextField } from '@mui/material';
+import { useRouter } from 'next/router';
 
 
 const TodoForm = () => {
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const imageFile = watch('image');
     const dispatch = useDispatch();
+    const router= useRouter();
 
     const convertToBase64 = (file) => {
       return new Promise((resolve, reject) => {
@@ -37,6 +39,7 @@ const TodoForm = () => {
             
           
                 dispatch(addTodo(todoData));
+                router.push('/cms/Todos');
             
             reset();
           };
@@ -71,7 +74,7 @@ const TodoForm = () => {
           <Grid item xs={12}>
             <TextField
               {...register('endDate', { required: 'End date is required' })}
-              label="End Date"
+             
               type="date"
               fullWidth
               

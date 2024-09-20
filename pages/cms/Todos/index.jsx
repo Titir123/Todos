@@ -93,6 +93,14 @@ const TodoList = () => {
   }, [gridOptions]);
 
   return (
+    <>
+    <h1 style={{textAlign:"center"}}> MyTodo APP</h1>
+    
+    <h3 style={{textAlign:"center"}}>
+Add items for daily references and keeping yourself upto-date &nbsp; &nbsp;
+ <Link href={'/cms/addTodos'}><button>Add Item</button></Link>
+    </h3>
+
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '1rem' }}>
       <div className="ag-theme-alpine" style={{ width: '100%', maxWidth: '1200px', minHeight: '400px' }}>
         <AgGridReact
@@ -104,6 +112,7 @@ const TodoList = () => {
         />
       </div>
     </div>
+  </>
   );
 };
 
